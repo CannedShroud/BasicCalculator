@@ -9,20 +9,16 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   String output = '0';
+  String show = '0';
   String _output = '0';
   double num1 = 0;
   double num2 = 0;
   String operate = '';
   double result = 0;
+  String history = '';
 
   calculate(buttonText) {
-    if (buttonText == 'C') {
-      String output = '0';
-      String _output = '0';
-      double num1 = 0;
-      double num2 = 0;
-      String operate = '';
-    } else if (buttonText == '.') {
+    if (buttonText == '.') {
       if (output.contains('.')) {
         print('Already contains decimal');
       }
@@ -52,7 +48,8 @@ class _MainScreenState extends State<MainScreen> {
     }
     print(output);
     setState(() {
-      output = output;
+      history = num1.toString();
+      show = output;
     });
   }
 
@@ -65,21 +62,35 @@ class _MainScreenState extends State<MainScreen> {
           Expanded(
             flex: 1,
             child: Container(
-              color: kDark,
-              width: double.infinity,
-              child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: Text(
-                      output,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 80,
+                color: kDark,
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 25),
+                      child: Text(
+                        history,
+                        style: TextStyle(
+                          color: Colors.white38,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
-                  )),
-            ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Text(
+                        show,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 80,
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
           ),
           Expanded(
             flex: 3,
@@ -226,7 +237,17 @@ class _MainScreenState extends State<MainScreen> {
                         color: kDark,
                         title: 'C',
                         onPressed: () {
-                          calculate('C');
+                          setState(() {
+                            String output = '0';
+                            String show = '0';
+                            String _output = '0';
+                            double num1 = 0;
+                            double num2 = 0;
+                            String operate = '';
+                            double result = 0;
+                            String history = '';
+                            print('C');
+                          });
                         },
                       ),
                       RoundedSquareButton(
