@@ -3,15 +3,15 @@ import 'constants.dart';
 
 class RoundedSquareButton extends StatelessWidget {
   String title;
-  Function onpress;
+  Function onPressed;
   Color color;
 
-  RoundedSquareButton({this.onpress, this.title, this.color});
+  RoundedSquareButton({this.onPressed, this.title, this.color});
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: onpress,
+      onPressed: onPressed,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       fillColor: color,
       child: Container(
