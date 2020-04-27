@@ -1,0 +1,4 @@
+#Mon Apr 27 19:32:55 IST 2020
+base.0=C\:\\Users\\hyper\\Desktop\\Code it is\\Flutter\\basic_cal\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
